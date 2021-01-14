@@ -3,21 +3,17 @@ import Section from "./Section";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => {
-  return {
-    box: { padding: theme.spacing(2) },
-  };
-});
-
 const SectionBlockColor = (props = {}) => {
-  let children, bg, color;
-  ({ children, bg, color, ...props } = props);
+  let className, children, bg, color;
+  ({ className = "", children, bg, color, ...props } = props);
 
-  const classes = useStyles();
+  const classes = makeStyles((theme) => ({
+    root: { padding: theme.spacing(2) },
+  }))();
 
   return (
     <Section
-      className={classes.box}
+      className={`${className} ${classes.root}`}
       style={{ backgroundColor: bg, color }}
       {...props}
     >

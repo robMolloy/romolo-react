@@ -1,13 +1,11 @@
 import Section from "../generic/sections/Section";
 import Text from "../generic/text/Text";
-// import { useTheme } from "@material-ui/core";
+import HomeWelcomeSection from "../custom/home/HomeWelcomeSection";
 
 const Home = () => {
-  // const theme = useTheme();
-  // console.log(useTheme());
-
   return (
     <>
+      <HomeWelcomeSection />
       <Section color="secondary" withContainer>
         <Text>
           New Project - check if there's a more recent version of the generic

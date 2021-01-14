@@ -3,8 +3,8 @@ import danger from "@material-ui/core/colors/red";
 
 const themeCreator = createMuiTheme({
   palette: {
-    primary: { main: "#34719a" },
-    secondary: { main: "#f6f6f6" },
+    primary: { main: "#FBAA60" },
+    secondary: { main: "#535b5f" },
   },
 });
 
@@ -12,8 +12,8 @@ const { primary: tertiary, secondary: mono } = themeCreator.palette;
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#004267" },
-    secondary: { main: "#ceebfa" },
+    primary: { main: "#F67B50" },
+    secondary: { main: "#FBC490" },
     tertiary,
     mono,
   },

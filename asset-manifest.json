@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "https://romolo.co.uk/projects/sites/romolo-react/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "https://romolo.co.uk/projects/sites/romolo-react/static/js/main.5a3cffe4.chunk.js",
+    "main.js.map": "https://romolo.co.uk/projects/sites/romolo-react/static/js/main.5a3cffe4.chunk.js.map",
+    "runtime-main.js": "https://romolo.co.uk/projects/sites/romolo-react/static/js/runtime-main.f3201cc5.js",
+    "runtime-main.js.map": "https://romolo.co.uk/projects/sites/romolo-react/static/js/runtime-main.f3201cc5.js.map",
+    "static/js/2.6d96e9f9.chunk.js": "https://romolo.co.uk/projects/sites/romolo-react/static/js/2.6d96e9f9.chunk.js",
+    "static/js/2.6d96e9f9.chunk.js.map": "https://romolo.co.uk/projects/sites/romolo-react/static/js/2.6d96e9f9.chunk.js.map",
+    "static/js/3.113ab24e.chunk.js": "https://romolo.co.uk/projects/sites/romolo-react/static/js/3.113ab24e.chunk.js",
+    "static/js/3.113ab24e.chunk.js.map": "https://romolo.co.uk/projects/sites/romolo-react/static/js/3.113ab24e.chunk.js.map",
+    "index.html": "https://romolo.co.uk/projects/sites/romolo-react/index.html",
+    "service-worker.js": "https://romolo.co.uk/projects/sites/romolo-react/service-worker.js",
+    "service-worker.js.map": "https://romolo.co.uk/projects/sites/romolo-react/service-worker.js.map",
+    "static/css/main.8c8b27cf.chunk.css.map": "https://romolo.co.uk/projects/sites/romolo-react/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.6d96e9f9.chunk.js.LICENSE.txt": "https://romolo.co.uk/projects/sites/romolo-react/static/js/2.6d96e9f9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3201cc5.js",
+    "static/js/2.6d96e9f9.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.5a3cffe4.chunk.js"
+  ]
+}

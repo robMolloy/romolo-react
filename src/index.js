@@ -5,15 +5,10 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
-import theme from "./theme";
-import { ThemeProvider } from "@material-ui/core/styles";
-
 ReactDOM.render(
   <>
     {/* <React.StrictMode> */}
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <App />
     {/* </React.StrictMode>, */}
   </>,
   document.getElementById("root")

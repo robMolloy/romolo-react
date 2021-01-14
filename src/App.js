@@ -8,9 +8,6 @@ import AllRoutes from "./components/generic/navigation/AllRoutes";
 
 import theme from "./components/generic/themes/theme";
 import themeAlt from "./components/generic/themes/themeAlt";
-// import theme from "./theme";
-// import themeAlt from "./themeAlt";
-// import themeGenerator from "./components/generic/themes/themeGenerator";
 
 import Logo from "./components/custom/media/Logo";
 

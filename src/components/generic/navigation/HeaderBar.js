@@ -10,6 +10,7 @@ import Switch from "@material-ui/core/Switch";
 
 import Container from "../../generic/containers/Container";
 import Logo from "../../custom/media/Logo";
+import Slider from "@material-ui/core/Slider";
 
 // const headerHeight
 
@@ -21,15 +22,12 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
   },
   container: {
-    // position: "relative",
     display: "flex",
     justifyContent: "space-between",
     alignContent: "center",
-    height: "100%",
   },
   menuButton: {
     alignSelf: "center",
-    // color: theme.palette.grey.main,
     border: `solid 2px ${theme.palette.grey.light}`,
     borderRadius: "4px",
     padding: "4px 8px",
@@ -38,11 +36,21 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "100px",
     maxWidth: "65%",
   },
+  logoSettingsContainer: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
   spacer: {
     flexGrow: 1,
   },
   switch: {
     alignSelf: "center",
+    // margin: 0,
+  },
+  slider: {
+    alignSelf: "center",
+    maxWidth: "34px",
   },
 }));
 
@@ -52,19 +60,33 @@ const HeaderBar = (props = {}) => {
 
   const classes = useStyles();
 
+  const [squeeze, setSqueeze] = React.useState(32);
+
   return (
     <AppBar className={classes.appbar}>
       <MUIToolbar className={classes.toolbar} variant="dense">
         <Container className={classes.container}>
           <div className={classes.logoContainer}>
-            <Logo />
+            <Logo squeeze={squeeze - 48} />
           </div>
+
           <div className={classes.spacer}></div>
-          <Switch
-            checked={themeState}
-            onChange={switchTheme}
-            className={classes.switch}
-          />
+
+          <span className={classes.logoSettingsContainer}>
+            <Switch
+              checked={themeState}
+              onChange={switchTheme}
+              className={classes.switch}
+            />
+            <Slider
+              min={0}
+              max={64}
+              checked={themeState}
+              onChange={(e, val) => setSqueeze(val)}
+              className={classes.slider}
+              value={squeeze}
+            />
+          </span>
 
           <IconButton
             onClick={toggleDrawer}

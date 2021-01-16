@@ -27,9 +27,11 @@ function App() {
     <Router basename={`${process.env.REACT_APP_PUBLIC_PATH ?? ""}`}>
       <ThemeProvider theme={themeState ? themeAlt : theme}>
         <div className="App">
-          <NavBars>
-            <HeaderBarContents {...{ themeState, setThemeState }} />
-          </NavBars>
+          <NavBars
+            headerChildren={
+              <HeaderBarContents {...{ themeState, setThemeState }} />
+            }
+          />
 
           <main>
             <Route exact path="/" component={Index} />

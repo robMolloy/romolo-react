@@ -21,19 +21,14 @@ function App() {
 
   const [themeState, setThemeState] = React.useState(false);
 
-  const switchTheme = () => setThemeState(!themeState);
-
   requestNotificationPermission();
-
   React.useEffect(() => displayNotification("hi judy"), []);
-
-  // console.log(Notification);
 
   return (
     <Router basename={`${process.env.REACT_APP_PUBLIC_PATH ?? ""}`}>
       <ThemeProvider theme={themeState ? themeAlt : theme}>
         <div className="App">
-          <NavBars {...{ Logo, themeState, switchTheme }} />
+          <NavBars {...{ Logo, themeState, setThemeState }} />
 
           <main>
             <Route exact path="/" component={Index} />

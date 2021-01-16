@@ -9,23 +9,6 @@ import Slider from "@material-ui/core/Slider";
 // const headerHeight
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  appbar: {
-    textAlign: "left",
-    backgroundColor: theme.palette.mono.main,
-    position: "relative",
-  },
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignContent: "center",
-  },
-  menuButton: {
-    alignSelf: "center",
-    border: `solid 2px ${theme.palette.grey.light}`,
-    borderRadius: "4px",
-    padding: "4px 8px",
-  },
   logoContainer: {
     maxHeight: "100px",
     maxWidth: "65%",
@@ -35,17 +18,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     flexDirection: "column",
   },
-  spacer: {
-    flexGrow: 1,
-  },
-  switch: {
-    alignSelf: "center",
-    // margin: 0,
-  },
   slider: {
     alignSelf: "center",
     maxWidth: "34px",
   },
+  spacer: { flexGrow: 1 },
+  switch: { alignSelf: "center" },
 }));
 
 const HeaderBarContents = (props = {}) => {

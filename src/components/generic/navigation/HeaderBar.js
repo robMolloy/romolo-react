@@ -8,7 +8,6 @@ import MUIToolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 
 import Container from "../../generic/containers/Container";
-import HeaderBarContents from "../../custom/navigation/HeaderBarContents";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -24,35 +23,15 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     alignSelf: "center",
-    border: `solid 2px ${theme.palette.grey.light}`,
+    border: `solid 2px ${theme.palette.grey.main}`,
     borderRadius: "4px",
     padding: "4px 8px",
-  },
-  logoContainer: {
-    maxHeight: "100px",
-    maxWidth: "65%",
-  },
-  logoSettingsContainer: {
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  spacer: {
-    flexGrow: 1,
-  },
-  switch: {
-    alignSelf: "center",
-    // margin: 0,
-  },
-  slider: {
-    alignSelf: "center",
-    maxWidth: "34px",
   },
 }));
 
 const HeaderBar = (props = {}) => {
-  let toggleDrawer, setThemeState, themeState;
-  ({ toggleDrawer, setThemeState, themeState, ...props } = props);
+  let children, toggleDrawer;
+  ({ children, toggleDrawer, ...props } = props);
 
   const classes = useStyles();
 
@@ -60,8 +39,9 @@ const HeaderBar = (props = {}) => {
     <AppBar className={classes.appbar}>
       <MUIToolbar className={classes.toolbar} variant="dense">
         <Container className={classes.container}>
-          <HeaderBarContents {...{ setThemeState, themeState }} />
+          {children}
 
+          <div></div>
           <IconButton
             onClick={toggleDrawer}
             className={classes.menuButton}

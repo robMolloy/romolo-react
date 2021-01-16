@@ -13,12 +13,21 @@ import Logo from "./components/custom/media/Logo";
 
 import { ThemeProvider } from "@material-ui/core/styles";
 
+import requestNotificationPermission from "./components/generic/notifications/requestNotificationPermission";
+import displayNotification from "./components/generic/notifications/displayNotification";
+
 function App() {
   const Index = Home;
 
   const [themeState, setThemeState] = React.useState(false);
 
   const switchTheme = () => setThemeState(!themeState);
+
+  requestNotificationPermission();
+
+  React.useEffect(() => displayNotification("hi judy"), []);
+
+  // console.log(Notification);
 
   return (
     <Router basename={`${process.env.REACT_APP_PUBLIC_PATH ?? ""}`}>

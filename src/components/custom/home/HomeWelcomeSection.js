@@ -6,8 +6,6 @@ import Text from "../../generic/text/Text";
 
 import makeStyles from "@material-ui/styles/makeStyles";
 
-console.log(window.innerHeight);
-
 const HomeWelcomeSection = (props = {}) => {
   let color;
   ({ color = "primary" } = props);

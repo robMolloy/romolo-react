@@ -6,8 +6,13 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AppBar from "@material-ui/core/AppBar";
 import MUIToolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
+import Switch from "@material-ui/core/Switch";
 
-import Container from "../containers/Container";
+import Container from "../../generic/containers/Container";
+import Logo from "../../custom/media/Logo";
+import Slider from "@material-ui/core/Slider";
+
+// const headerHeight
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -16,30 +21,73 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.mono.main,
     position: "relative",
   },
+  container: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignContent: "center",
+  },
   menuButton: {
     alignSelf: "center",
     border: `solid 2px ${theme.palette.grey.light}`,
     borderRadius: "4px",
     padding: "4px 8px",
   },
-  container: {
+  logoContainer: {
+    maxHeight: "100px",
+    maxWidth: "65%",
+  },
+  logoSettingsContainer: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+  spacer: {
+    flexGrow: 1,
+  },
+  switch: {
+    alignSelf: "center",
+    // margin: 0,
+  },
+  slider: {
+    alignSelf: "center",
+    maxWidth: "34px",
   },
 }));
 
 const HeaderBar = (props = {}) => {
-  let children, toggleDrawer;
-  ({ children, toggleDrawer, ...props } = props);
+  let toggleDrawer, switchTheme, themeState;
+  ({ toggleDrawer, switchTheme, themeState, ...props } = props);
 
   const classes = useStyles();
+
+  const [squeeze, setSqueeze] = React.useState(32);
 
   return (
     <AppBar className={classes.appbar}>
       <MUIToolbar className={classes.toolbar} variant="dense">
         <Container className={classes.container}>
-          {children}
-          <div></div>
+          <div className={classes.logoContainer}>
+            <Logo squeeze={squeeze - 48} />
+          </div>
+
+          <div className={classes.spacer}></div>
+
+          <span className={classes.logoSettingsContainer}>
+            <Switch
+              checked={themeState}
+              onChange={switchTheme}
+              className={classes.switch}
+            />
+            <Slider
+              min={0}
+              max={64}
+              checked={themeState}
+              onChange={(e, val) => setSqueeze(val)}
+              className={classes.slider}
+              value={squeeze}
+            />
+          </span>
+
           <IconButton
             onClick={toggleDrawer}
             className={classes.menuButton}
@@ -52,6 +100,8 @@ const HeaderBar = (props = {}) => {
         </Container>
       </MUIToolbar>
     </AppBar>
+
+    // </div>
   );
 };
 

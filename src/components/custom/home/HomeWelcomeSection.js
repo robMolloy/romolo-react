@@ -8,7 +8,10 @@ import makeStyles from "@material-ui/styles/makeStyles";
 
 console.log(window.innerHeight);
 
-const HomeWelcomeSection = () => {
+const HomeWelcomeSection = (props = {}) => {
+  let color;
+  ({ color = "primary" } = props);
+
   const classes = makeStyles(() => ({
     root: {
       height: parseInt(window.innerHeight) - 85 + "px",
@@ -20,7 +23,7 @@ const HomeWelcomeSection = () => {
   }))();
 
   return (
-    <Section className={classes.root} color="primary">
+    <Section className={classes.root} color={color}>
       <span className={classes.container}>
         <Text align="right">Hi I'm</Text>
         <Title size={0}>Rob Molloy</Title>

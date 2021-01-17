@@ -12,16 +12,16 @@ import HeaderBarContents from "./components/custom/navigation/HeaderBarContents"
 
 import { ThemeProvider } from "@material-ui/core/styles";
 
-import requestNotificationPermission from "./components/generic/notifications/requestNotificationPermission";
-import displayNotification from "./components/generic/notifications/displayNotification";
+// import requestNotificationPermission from "./components/generic/notifications/requestNotificationPermission";
+// import displayNotification from "./components/generic/notifications/displayNotification";
 
-function App() {
+const App = () => {
   const Index = Home;
 
   const [themeState, setThemeState] = React.useState(false);
 
-  requestNotificationPermission();
-  React.useEffect(() => displayNotification("hi judy"), []);
+  // requestNotificationPermission();
+  // React.useEffect(() => displayNotification("hi judy"), []);
 
   return (
     <Router basename={`${process.env.REACT_APP_PUBLIC_PATH ?? ""}`}>
@@ -41,6 +41,6 @@ function App() {
       </ThemeProvider>
     </Router>
   );
-}
+};
 
 export default App;

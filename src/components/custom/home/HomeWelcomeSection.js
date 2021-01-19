@@ -13,13 +13,21 @@ const HomeWelcomeSection = (props = {}) => {
 
   const classes = makeStyles((theme) => ({
     root: {
-      height: parseInt(window.innerHeight) - 85 + "px",
+      height: parseInt(window.innerHeight) - 125 + "px",
       justifyContent: "center",
       alignItems: "center",
       display: "flex",
+      padding: "0",
+    },
+    column: {
+      height: "100%",
+      alignItems: "center",
+      display: "flex",
+      justifyContent: "space-between",
+      flexDirection: "column",
     },
     container: {},
-    iconsContainer: { position: "absolute", bottom: 0 },
+    // iconsContainer: { position: "absolute", bottom: 0 },
     icon: {
       fontSize: "3em",
       cursor: "pointer",
@@ -30,19 +38,22 @@ const HomeWelcomeSection = (props = {}) => {
 
   return (
     <Section className={classes.root} color={color}>
-      <span className={classes.container}>
-        <Text align="right">Hi I'm</Text>
-        <Title size={0}>Rob Molloy</Title>
-        <Text>romolo.co.uk</Text>
-      </span>
-      <span className={classes.iconsContainer}>
-        <a
-          href="https://github.com/robMolloy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GitHub className={classes.icon} />
-        </a>
+      <span className={classes.column}>
+        <span></span>
+        <span className={classes.container}>
+          <Text align="right">Hi I'm</Text>
+          <Title size={0}>Rob Molloy</Title>
+          <Text>romolo.co.uk</Text>
+        </span>
+        <span className={classes.iconsContainer}>
+          <a
+            href="https://github.com/robMolloy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitHub className={classes.icon} />
+          </a>
+        </span>
       </span>
     </Section>
   );

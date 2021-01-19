@@ -6,10 +6,37 @@ import Input from "../../generic/fields/Input";
 import ButtonPrimary from "../../generic/buttons/ButtonPrimary";
 import { makeStyles } from "@material-ui/core";
 
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import "yup-phone";
+
+const Schema = yup.object().shape({
+  Name: yup.string().required(),
+  Email: yup.string().required().email(),
+  Phone: yup.string().required().phone(),
+  Message: yup.string().required(),
+});
+
+const getDefaultFieldProps = ({ formControls, name }) => {
+  return {
+    helperText: formControls.errors?.[name]?.message,
+    name,
+    error: !!formControls.errors?.[name],
+    ref: formControls.register,
+  };
+};
+
 const HomeContactForm = (props = {}) => {
+  // let id, values, formControls, setFormControls;
+  // ({ id, values, formControls, setFormControls } = props);
   let color;
   ({ color = "mono" } = props);
 
+  const formControls = useForm({
+    mode: "onChange",
+    resolver: yupResolver(Schema),
+  });
   const [state, setState] = React.useState({ status: "" });
 
   const classes = makeStyles((theme) => ({
@@ -20,25 +47,27 @@ const HomeContactForm = (props = {}) => {
     },
   }))();
 
-  const submitForm = (ev) => {
-    ev.preventDefault();
-    const form = ev.target;
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
+  const onSubmit = (data, e) => {
+    const f = new FormData();
+    Object.entries(data).forEach(([key, value]) => f.append(key, value));
 
-    xhr.open(form.method, form.action);
+    const xhr = new XMLHttpRequest();
+    xhr.open("post", "https://formspree.io/f/mgepdvrr");
     xhr.setRequestHeader("Accept", "application/json");
 
     xhr.onreadystatechange = () => {
+      let error = false;
+
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        form.reset();
-        setState({ status: "SUCCESS" });
-      } else {
-        setState({ status: "ERROR" });
-      }
+      if (!xhr.response) error = true;
+
+      if (xhr.status === 200) formControls.reset();
+      else error = true;
+
+      setState({ status: error ? "ERROR" : "SUCCESS" });
     };
-    xhr.send(data);
+
+    xhr.send(f);
   };
 
   return (
@@ -54,28 +83,40 @@ const HomeContactForm = (props = {}) => {
         .
       </Text>
       <br />
-      <form
-        onSubmit={submitForm}
-        action="https://formspree.io/f/mgepdvrr"
-        method="POST"
-      >
-        <Input label="Name" name="name" />
+      <form onSubmit={formControls.handleSubmit(onSubmit)}>
+        <Input
+          label="Name"
+          {...getDefaultFieldProps({ formControls, name: "Name" })}
+        />
         <br />
         <br />
-        <Input label="Email" name="email" />
+        <Input
+          label="Email"
+          {...getDefaultFieldProps({ formControls, name: "Email" })}
+        />
         <br />
         <br />
-        <Input label="Message" name="message" multiline rows={4} />
+        <Input
+          label="Phone"
+          {...getDefaultFieldProps({ formControls, name: "Phone" })}
+        />
         <br />
         <br />
-        {state.status === "SUCCESS" ? (
-          <Title align="center" size={0}>
-            Thanks!
-          </Title>
-        ) : (
+        <Input
+          label="Message"
+          multiline
+          rows={4}
+          {...getDefaultFieldProps({ formControls, name: "Message" })}
+        />
+        <br />
+        <br />
+        <Title align="center" size={0}>
+          {state.status === "ERROR" && "Ooops! There was an error."}
+          {state.status === "SUCCESS" && "Thanks!"}
+        </Title>
+        {state.status === "" && (
           <ButtonPrimary type="submit">Submit</ButtonPrimary>
         )}
-        {state.status === "ERROR" && <p>Ooops! There was an error.</p>}
       </form>
     </Section>
   );

@@ -13,7 +13,7 @@ const Text = (props = {}) => {
   ({
     children,
     className = "",
-    align = "left",
+    align = "justify",
     xsOverride = [],
     gutterBottom = false,
     Component = "p",

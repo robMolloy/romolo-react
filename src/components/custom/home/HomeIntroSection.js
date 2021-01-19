@@ -11,7 +11,6 @@ const HomeIntroSection = (props = {}) => {
 
   const classes = makeStyles(() => ({
     imgContainer: {
-      // background: 'url("favicon.svg") no-repeat center',
       height: "200px",
     },
   }))();
@@ -32,9 +31,9 @@ const HomeIntroSection = (props = {}) => {
               end-client the best possible user-exprience.
             </Text>
             <Text>
-              As we make all our apps from scratch, they are customisable down
-              to the last detail and for full convenience we'll even give you
-              tools for you to change many parts of the project yourself.
+              As I make all my projects from scratch, they are customisable down
+              to the last detail and for full convenience each project has tools
+              for you to change many parts of the project yourself.
             </Text>
           </>,
           <div className={classes.imgContainer}>

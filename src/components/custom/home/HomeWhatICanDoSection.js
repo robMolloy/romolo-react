@@ -52,7 +52,7 @@ const HomeWhatICanDoSection = (props = {}) => {
       </Text>
       <Text gutterBottom>
         I design for mobile-first and use material design princiciples in order
-        to take advantage of the material-ui API.
+        to take advantage of the material-ui module.
       </Text>
       <Text gutterBottom>
         Other technologies and APIs that I have used are Twilio, Telegram,

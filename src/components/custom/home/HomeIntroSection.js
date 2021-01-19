@@ -24,8 +24,12 @@ const HomeIntroSection = (props = {}) => {
         array={[
           <>
             <Text gutterBottom>
-              I make cutting-edge websites and apps that are fully installable
-              to give the end-user the best possible user-exprience.
+              I am a full-stack developer, with experience in a number of
+              technologies.
+            </Text>
+            <Text gutterBottom>
+              I make beautiful websites that are tailor-made to give the
+              end-client the best possible user-exprience.
             </Text>
             <Text>
               As we make all our apps from scratch, they are customisable down

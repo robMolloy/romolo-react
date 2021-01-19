@@ -5,6 +5,7 @@ import Title from "../../generic/text/Title";
 import Text from "../../generic/text/Text";
 
 import makeStyles from "@material-ui/styles/makeStyles";
+import GitHub from "@material-ui/icons/GitHub";
 
 console.log(window.innerHeight);
 
@@ -12,7 +13,7 @@ const HomeWelcomeSection = (props = {}) => {
   let color;
   ({ color = "primary" } = props);
 
-  const classes = makeStyles(() => ({
+  const classes = makeStyles((theme) => ({
     root: {
       height: parseInt(window.innerHeight) - 85 + "px",
       justifyContent: "center",
@@ -20,6 +21,13 @@ const HomeWelcomeSection = (props = {}) => {
       display: "flex",
     },
     container: {},
+    iconsContainer: { position: "absolute", bottom: 0 },
+    icon: {
+      fontSize: "3em",
+      cursor: "pointer",
+      color: theme.palette[color].contrastText,
+      "&:hover": { fontSize: "3.3em" },
+    },
   }))();
 
   return (
@@ -28,6 +36,15 @@ const HomeWelcomeSection = (props = {}) => {
         <Text align="right">Hi I'm</Text>
         <Title size={0}>Rob Molloy</Title>
         <Text>romolo.co.uk</Text>
+      </span>
+      <span className={classes.iconsContainer}>
+        <a
+          href="https://github.com/robMolloy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHub className={classes.icon} />
+        </a>
       </span>
     </Section>
   );

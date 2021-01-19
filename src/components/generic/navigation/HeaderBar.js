@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HeaderBar = (props = {}) => {
-  let children, toggleDrawer;
-  ({ children, toggleDrawer, ...props } = props);
+  let children, toggleDrawer, menuButton;
+  ({ children, toggleDrawer, menuButton = true, ...props } = props);
 
   const classes = useStyles();
 
@@ -42,15 +42,17 @@ const HeaderBar = (props = {}) => {
           {children}
 
           <div></div>
-          <IconButton
-            onClick={toggleDrawer}
-            className={classes.menuButton}
-            aria-label="menu"
-            color="primary"
-            variant="outlined"
-          >
-            <MenuIcon />
-          </IconButton>
+          {menuButton && (
+            <IconButton
+              onClick={toggleDrawer}
+              className={classes.menuButton}
+              aria-label="menu"
+              color="primary"
+              variant="outlined"
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
         </Container>
       </MUIToolbar>
     </AppBar>

@@ -28,6 +28,7 @@ const App = () => {
       <ThemeProvider theme={themeState ? themeAlt : theme}>
         <div className="App">
           <NavBars
+            menuButton={false}
             headerChildren={
               <HeaderBarContents {...{ themeState, setThemeState }} />
             }

@@ -71,7 +71,7 @@ const HomeContactForm = (props = {}) => {
   };
 
   return (
-    <Section color={color} withContainer>
+    <Section id="contactForm" color={color} withContainer>
       <Title underline gutterBottom>
         Contact Me
       </Title>

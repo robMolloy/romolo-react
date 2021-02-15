@@ -5,6 +5,7 @@ const Text = (props = {}) => {
   let children,
     className,
     align,
+    lineHeight,
     xsOverride,
     gutterBottom,
     Component,
@@ -14,6 +15,7 @@ const Text = (props = {}) => {
     children,
     className = "",
     align = "justify",
+    lineHeight = 4,
     xsOverride = [],
     gutterBottom = false,
     Component = "p",
@@ -24,6 +26,7 @@ const Text = (props = {}) => {
   const classes = makeStyles((theme) => ({
     root: {
       textAlign: align,
+      lineHeight: `${theme.spacing(lineHeight)}px`,
       borderBottom: underline ? `1px solid ${theme.palette.grey.main}` : "none",
       margin: 0,
       marginBottom: gutterBottom ? theme.spacing(2) : 0,

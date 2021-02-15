@@ -27,7 +27,7 @@ const HomeIntroSection = (props = {}) => {
               technologies.
             </Text>
             <Text gutterBottom>
-              I make beautiful websites that are tailor-made to give the
+              I make original websites that are tailor-made to give the
               end-client the best possible user-exprience.
             </Text>
             <Text>
